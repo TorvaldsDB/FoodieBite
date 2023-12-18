@@ -1,7 +1,7 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const CategoryGridTile = ({ title, color, onPress }) => {
+const CategoryGridTile = ({ title, color, navigation }) => {
   return (
     <View style={styles.gridItem}>
       <Pressable
@@ -10,7 +10,7 @@ const CategoryGridTile = ({ title, color, onPress }) => {
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
-        onPress={onPress}
+        onPress={() => navigation.navigate("MealsOverview")}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>

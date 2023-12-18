@@ -5,11 +5,8 @@ import CategoryGridTile from "../components/CategoryGridTile";
 
 const CategoriesScreen = ({ navigation }) => {
   const renderCategoryItem = ({ item: { title, color } }) => {
-    const pressHandler = () => {
-      navigation.navigate("MealsOverview");
-    };
     return (
-      <CategoryGridTile title={title} color={color} onPress={pressHandler} />
+      <CategoryGridTile title={title} color={color} navigation={navigation} />
     );
   };
   return (
