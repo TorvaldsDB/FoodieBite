@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Image,
   Platform,
@@ -6,7 +7,6 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
 
 const MealItem = ({ title, imageUrl, duration, complexity, affordability }) => {
   return (
