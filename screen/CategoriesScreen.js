@@ -4,9 +4,14 @@ import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
 
 const CategoriesScreen = ({ navigation }) => {
-  const renderCategoryItem = ({ item: { title, color } }) => {
+  const renderCategoryItem = ({ item: { title, color, id } }) => {
     return (
-      <CategoryGridTile title={title} color={color} navigation={navigation} />
+      <CategoryGridTile
+        id={id}
+        title={title}
+        color={color}
+        navigation={navigation}
+      />
     );
   };
   return (
