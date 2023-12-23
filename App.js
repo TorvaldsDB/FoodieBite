@@ -1,12 +1,13 @@
+import { Ionicons } from "@expo/vector-icons";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Button, StyleSheet, Text } from "react-native";
-import CategoriesScreen from "./screen/CategoriesScreen";
-import MealsOverviewScreen from "./screen/MealsOverviewScreen";
 import { StatusBar } from "expo-status-bar";
-import MealDetailScreen from "./screen/MealDetailScreen";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { StyleSheet } from "react-native";
+import CategoriesScreen from "./screen/CategoriesScreen";
 import FavoritesScreen from "./screen/FavoritesScreen";
+import MealDetailScreen from "./screen/MealDetailScreen";
+import MealsOverviewScreen from "./screen/MealsOverviewScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -18,10 +19,31 @@ const DrawerNavigator = () => {
         headerStyle: { backgroundColor: "#351410" },
         headerTintColor: "white",
         sceneContainerStyle: { backgroundColor: "#24180f" },
+        drawerContentStyle: { backgroundColor: "#351410" },
+        drawerInactiveTintColor: "white",
+        drawerActiveTintColor: "#351410",
+        drawerActiveBackgroundColor: "#e4baa1",
       }}
     >
-      <Drawer.Screen name="Categories" component={CategoriesScreen} />
-      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+      <Drawer.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        options={{
+          title: "All Categories",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="list" color={color} size={size} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={{
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="star" color={color} size={size} />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 };
