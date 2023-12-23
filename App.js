@@ -5,8 +5,26 @@ import CategoriesScreen from "./screen/CategoriesScreen";
 import MealsOverviewScreen from "./screen/MealsOverviewScreen";
 import { StatusBar } from "expo-status-bar";
 import MealDetailScreen from "./screen/MealDetailScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import FavoritesScreen from "./screen/FavoritesScreen";
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: "#351410" },
+        headerTintColor: "white",
+        sceneContainerStyle: { backgroundColor: "#24180f" },
+      }}
+    >
+      <Drawer.Screen name="Categories" component={CategoriesScreen} />
+      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 export default function App() {
   return (
@@ -22,10 +40,10 @@ export default function App() {
           }}
         >
           <Stack.Screen
-            name="MealsCategories"
-            component={CategoriesScreen}
+            name="Drawer"
+            component={DrawerNavigator}
             options={{
-              title: "All Categories",
+              headerShown: false,
             }}
           />
           <Stack.Screen
@@ -42,7 +60,7 @@ export default function App() {
             name="MealDetail"
             component={MealDetailScreen}
             options={{
-              title: "Meal",
+              title: "About the Meal",
               // headerRight: () => {
               //   return <Button title="tap me" />;
               // },
