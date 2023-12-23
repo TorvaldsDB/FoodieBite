@@ -1,9 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet, Text } from "react-native";
 import CategoriesScreen from "./screen/CategoriesScreen";
 import MealsOverviewScreen from "./screen/MealsOverviewScreen";
 import { StatusBar } from "expo-status-bar";
+import MealDetailScreen from "./screen/MealDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,16 @@ export default function App() {
             //     title: catId,
             //   };
             // }}
+          />
+          <Stack.Screen
+            name="MealDetail"
+            component={MealDetailScreen}
+            options={{
+              title: "Meal",
+              // headerRight: () => {
+              //   return <Button title="tap me" />;
+              // },
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

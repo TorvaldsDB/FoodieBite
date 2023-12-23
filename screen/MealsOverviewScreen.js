@@ -22,9 +22,10 @@ const MealsOverviewScreen = () => {
   );
 
   const renderMealItem = ({
-    item: { title, imageUrl, duration, complexity, affordability },
+    item: { id, title, imageUrl, duration, complexity, affordability },
   }) => {
     const mealItemProps = {
+      id,
       title,
       imageUrl,
       affordability,
